@@ -13,6 +13,7 @@ class TestUser:
         with app.app_context():
 
             User.query.delete()
+            Recipe.query.delete()
             db.session.commit()
 
             user = User(
@@ -90,7 +91,7 @@ class TestUser:
             User.query.delete()
             db.session.commit()
 
-            user = User(username="Prabhdip")
+            user = User(username="Prabhdip", _password_hash="12345678") 
 
             recipe_1 = Recipe(
                 title="Delicious Shed Ham",
